@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Todos Exercise</title>
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+  <body>
+    <div class="form">
+      <div class="logocontainer">
+        <img src="images/springboard.png" width="300" alt="Avatar" />
+      </div>
+      <div class="container">
+        <h1>JS Todos Exercise & Local storage</h1>
+        <p></p>
+        <form id="formTodo" action="#">
+          <div class="container">
+            <label for="taskname"><b>Task Name</b></label>
+            <input
+              type="text"
+              placeholder="Enter Task Name"
+              id="taskname"
+              name="taskname"
+              required
+            />
+            <label for="taskdescription"><b>Task Description</b></label>
+            <input
+              type="text"
+              placeholder="Enter Task Description"
+              id="taskdescription"
+              name="taskdescription"
+              required
+            />
+            <button type="submit" class="button">Add</button>
+          </div>
+        </form>
+        <h2>Todo list</h2>
+        <button id="BtClear" style="
+            background-color: rgb(233, 233, 51);
+            color: black;
+            cursor: pointer;
+            border: none;
+            padding: 5px;
+          ">
+          Clear Local Storage
+        </button>
+        <p></p>
+        <hr />
+        <table id="TodoList" class="table">
+          <thead>
+            <tr>
+              <th>Task Name</th>
+              <th>Task Description</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="container" style="background-color: #f1f1f1"></div>
+    </div>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>
