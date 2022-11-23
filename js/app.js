@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const BtClear = document.querySelector("#BtClear");
+  const btClear = document.querySelector("#BtClear");
   const formSubmit = document.querySelector("#formTodo");
-  const TblListe = document.querySelector("#TodoList tbody");
+  const tblListe = document.querySelector("#TodoList tbody");
   const dataTodoList = JSON.parse(localStorage.getItem("todosList") || "[]");
 
-  BtClear.addEventListener("click", () => {
+  btClear.addEventListener("click", () => {
     localStorage.clear();
     window.location.reload();
   });
@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var save = saveInLocalStorage(mytask);
     if (save) {
-      CreateListElement(mytask.task, mytask.descrpition, mytask.IsCompleted);
+      CreateListElement(mytask.task, mytask.descrpition, mytask.isCompleted);
     }
 
     formSubmit.reset();
   });
 
-  TblListe.addEventListener("click", (e) => {
+  tblListe.addEventListener("click", (e) => {
     const tagName = e.target.tagName;
 
     if (tagName === "TD") {
@@ -56,31 +56,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function CreateListElement(task, descrpition, isComplited) {
+  function CreateListElement(task, descrpition, isCompleted) {
     const tbodyTR = document.createElement("tr");
 
-    const TdtaskName = document.createElement("td");
-    TdtaskName.innerText = task;
+    const tdtaskName = document.createElement("td");
+    tdtaskName.innerText = task;
 
-    const TdtaskDescription = document.createElement("td");
-    TdtaskDescription.innerText = descrpition;
+    const tdtaskDescription = document.createElement("td");
+    tdtaskDescription.innerText = descrpition;
 
     const deleteButton = document.createElement("button");
     deleteButton.innerText = "Delete";
     deleteButton.classList.add("removeButton");
 
-    const TdActions = document.createElement("td");
-    TdActions.appendChild(deleteButton);
+    const tdActions = document.createElement("td");
+    tdActions.appendChild(deleteButton);
 
-    tbodyTR.appendChild(TdtaskName);
-    tbodyTR.appendChild(TdtaskDescription);
-    tbodyTR.appendChild(TdActions);
+    tbodyTR.appendChild(tdtaskName);
+    tbodyTR.appendChild(tdtaskDescription);
+    tbodyTR.appendChild(tdActions);
 
-    if (isComplited) {
+    if (isCompleted) {
       tbodyTR.style.textDecoration = "line-through";
     } 
     
-    TblListe.appendChild(tbodyTR);
+    tblListe.appendChild(tbodyTR);
   }
   function loadLocalStorage() {
     for (let todo of dataTodoList) {
